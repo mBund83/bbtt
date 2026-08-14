@@ -19,25 +19,35 @@
   <body>
     <div class="atmosphere" aria-hidden="true"></div>
 
-    <header class="site-header">
-      <a class="logo-link" href="#top" aria-label="BB Transport & Trading AS – til toppen">
-        <img class="logo logo--nav" src="assets/logo.png" alt="BB Transport & Trading AS" />
-      </a>
-      <nav class="nav" aria-label="Hovedmeny">
-        <a href="#tjenester">Tjenester</a>
-        <a href="#om-oss">Om oss</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
+    <header class="site-header" id="site-header">
+      <div class="site-header__inner">
+        <a class="logo-link" href="#top" aria-label="BB Transport & Trading AS – til toppen">
+          <img class="logo logo--nav" src="assets/logo.png" alt="BB Transport & Trading AS" />
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Åpne meny"
+        >
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+        </button>
+
+        <nav class="nav" id="site-nav" aria-label="Hovedmeny">
+          <a href="#tjenester">Tjenester</a>
+          <a href="#om-oss">Om oss</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+      </div>
     </header>
 
     <main id="top">
       <section class="hero">
         <div class="hero__frame">
-          <img
-            class="hero__truck reveal"
-            src="assets/truck.png"
-            alt="Rød MAN tippbil"
-          />
           <div class="hero__content">
             <img
               class="logo logo--hero reveal"
@@ -56,6 +66,15 @@
               <a class="btn btn--ghost" href="#tjenester">Våre tjenester</a>
             </div>
           </div>
+          <div class="hero__media reveal reveal-delay-2">
+            <img
+              class="hero__truck"
+              src="assets/truck.png"
+              alt="Rød MAN tippbil"
+              width="840"
+              height="560"
+            />
+          </div>
         </div>
       </section>
 
@@ -63,7 +82,7 @@
         <div class="section__inner">
           <header class="section__header reveal">
             <p class="section__eyebrow">Tjenester</p>
-            <h2 class="section__title">To tydelige tilbud</h2>
+            <h2 class="section__title">Handel og transport</h2>
             <p class="section__lead">
               Enten du skal handle kjøretøy og maskiner, eller trenger transport –
               vi holder dialogen kort og leveransen profesjonell.
@@ -135,21 +154,25 @@
           <div class="people">
             <article class="person reveal">
               <h3>Morten Bundli</h3>
-              <p>
-                <a href="tel:+4791338422">91&nbsp;33&nbsp;84&nbsp;22</a>
-              </p>
-              <p>
-                <a href="mailto:morten@bbtt.no">morten@bbtt.no</a>
-              </p>
+              <ul class="person__links">
+                <li>
+                  <a href="tel:+4791338422">91&nbsp;33&nbsp;84&nbsp;22</a>
+                </li>
+                <li>
+                  <a href="mailto:morten@bbtt.no">morten@bbtt.no</a>
+                </li>
+              </ul>
             </article>
             <article class="person reveal">
               <h3>Christer Bremseth</h3>
-              <p>
-                <a href="tel:+4747456464">47&nbsp;45&nbsp;64&nbsp;64</a>
-              </p>
-              <p>
-                <a href="mailto:christer@bbtt.no">christer@bbtt.no</a>
-              </p>
+              <ul class="person__links">
+                <li>
+                  <a href="tel:+4747456464">47&nbsp;45&nbsp;64&nbsp;64</a>
+                </li>
+                <li>
+                  <a href="mailto:christer@bbtt.no">christer@bbtt.no</a>
+                </li>
+              </ul>
             </article>
           </div>
         </div>
@@ -176,17 +199,25 @@
             </address>
             <div class="contact-block">
               <h3>Morten Bundli</h3>
-              <p>
-                <a href="tel:+4791338422">91&nbsp;33&nbsp;84&nbsp;22</a><br />
-                <a href="mailto:morten@bbtt.no">morten@bbtt.no</a>
-              </p>
+              <ul class="contact-links">
+                <li>
+                  <a href="tel:+4791338422">91&nbsp;33&nbsp;84&nbsp;22</a>
+                </li>
+                <li>
+                  <a href="mailto:morten@bbtt.no">morten@bbtt.no</a>
+                </li>
+              </ul>
             </div>
             <div class="contact-block">
               <h3>Christer Bremseth</h3>
-              <p>
-                <a href="tel:+4747456464">47&nbsp;45&nbsp;64&nbsp;64</a><br />
-                <a href="mailto:christer@bbtt.no">christer@bbtt.no</a>
-              </p>
+              <ul class="contact-links">
+                <li>
+                  <a href="tel:+4747456464">47&nbsp;45&nbsp;64&nbsp;64</a>
+                </li>
+                <li>
+                  <a href="mailto:christer@bbtt.no">christer@bbtt.no</a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -196,7 +227,10 @@
     <footer class="site-footer">
       <div class="site-footer__inner">
         <img class="logo logo--footer" src="assets/logo.png" alt="" />
-        <p>&copy; <span id="year"></span> BB Transport &amp; Trading AS · Org.nr. 934&nbsp;404&nbsp;440</p>
+        <p>
+          &copy; <span id="year"></span> BB Transport &amp; Trading AS<br class="footer-break" />
+          <span class="footer-meta">Org.nr. 934&nbsp;404&nbsp;440</span>
+        </p>
       </div>
     </footer>
 
