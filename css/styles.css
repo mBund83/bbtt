@@ -464,14 +464,12 @@ address {
   margin-bottom: 0.65rem;
 }
 
-.person__links,
-.contact-links {
+.person__links {
   display: grid;
   gap: 0.35rem;
 }
 
-.person__links a,
-.contact-links a {
+.person__links a {
   color: var(--text);
   display: inline-flex;
   align-items: center;
@@ -483,8 +481,7 @@ address {
     border-color 0.25s var(--ease);
 }
 
-.person__links a:hover,
-.contact-links a:hover {
+.person__links a:hover {
   color: var(--accent);
   border-color: var(--accent);
 }
@@ -501,6 +498,10 @@ address {
 }
 
 .contact-block {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.15rem;
   padding: 1.5rem 1.4rem;
 }
 
@@ -514,22 +515,26 @@ address {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 0.7rem;
+  margin: 0 0 0.55rem;
+  padding: 0;
 }
 
-.contact-block p {
-  color: var(--text-muted);
-}
-
-.contact-links {
+.contact-line {
+  display: block;
   margin: 0;
   padding: 0;
-  list-style: none;
+  color: var(--text);
+  min-height: 2.1rem;
+  line-height: 2.1rem;
+  border-bottom: 1px solid transparent;
+  transition:
+    color 0.25s var(--ease),
+    border-color 0.25s var(--ease);
 }
 
-.contact-links li {
-  margin: 0;
-  padding: 0;
+.contact-line:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .site-footer {
@@ -725,20 +730,7 @@ address {
     width: 100%;
   }
 
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.15rem;
-    margin: 0;
-    padding: 0;
-  }
-
-  .contact-links a {
-    display: block;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  .contact-line {
     min-height: var(--tap);
     line-height: var(--tap);
     font-size: 1.05rem;
