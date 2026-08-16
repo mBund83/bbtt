@@ -521,6 +521,17 @@ address {
   color: var(--text-muted);
 }
 
+.contact-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-links li {
+  margin: 0;
+  padding: 0;
+}
+
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 1.75rem var(--space);
@@ -717,13 +728,17 @@ address {
   .contact-links {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 0.15rem;
+    margin: 0;
+    padding: 0;
   }
 
   .contact-links a {
     display: block;
     width: 100%;
+    margin: 0;
+    padding: 0;
     min-height: var(--tap);
     line-height: var(--tap);
     font-size: 1.05rem;
