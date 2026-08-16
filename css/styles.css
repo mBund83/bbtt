@@ -593,9 +593,13 @@ address {
     padding-right: 0;
   }
 
-  .service + .service,
-  .contact-block + .contact-block {
+  .service + .service {
     padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .contact-block + .contact-block {
     border-left: 0;
     border-top: 1px solid var(--line);
   }
