@@ -295,25 +295,18 @@ address {
     border-color 0.25s var(--ease);
 }
 
-.btn--primary {
+.btn--primary,
+.btn--ghost {
   background: var(--text);
   color: #f4f6f8;
+  border-color: var(--text);
 }
 
-.btn--primary:hover {
+.btn--primary:hover,
+.btn--ghost:hover {
   background: var(--accent);
   color: #fff;
-}
-
-.btn--ghost {
-  background: transparent;
-  color: var(--text);
-  border-color: var(--line-strong);
-}
-
-.btn--ghost:hover {
   border-color: var(--accent);
-  color: var(--accent);
 }
 
 /* Sections */
@@ -498,12 +491,13 @@ address {
 
 .contact-panel {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0;
   border: 1px solid var(--line-strong);
   outline: 1px solid var(--line);
   outline-offset: 5px;
   background: var(--bg-panel);
+  max-width: 40rem;
 }
 
 .contact-block {
