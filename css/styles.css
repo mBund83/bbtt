@@ -466,18 +466,25 @@ address {
 
 .person__links,
 .contact-links {
-  display: grid;
-  gap: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+
+.person__links li,
+.contact-links li {
+  width: 100%;
 }
 
 .person__links a,
 .contact-links a {
   color: var(--text);
-  display: inline-flex;
-  align-items: center;
+  display: block;
+  width: 100%;
   min-height: 2.1rem;
+  line-height: 2.1rem;
   border-bottom: 1px solid transparent;
-  width: fit-content;
   transition:
     color 0.25s var(--ease),
     border-color 0.25s var(--ease);
@@ -626,7 +633,13 @@ address {
   }
 
   .contact-panel {
+    max-width: none;
+    width: 100%;
     outline-offset: 3px;
+  }
+
+  .contact-block {
+    padding: 1.25rem 1.15rem;
   }
 }
 
@@ -707,9 +720,16 @@ address {
     padding: 1.15rem 1.2rem;
   }
 
+  .people,
+  .contact-panel {
+    display: flex;
+    flex-direction: column;
+  }
+
   .person__links a,
   .contact-links a {
     min-height: var(--tap);
+    line-height: var(--tap);
     font-size: 1.05rem;
   }
 
