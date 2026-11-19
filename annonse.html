@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Annonse | BB Transport & Trading AS</title>
+    <meta name="description" content="Annonse fra BB Transport & Trading AS." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css?v=12" />
+  </head>
+  <body data-page="ad">
+    <header class="site-header site-header--solid is-scrolled" id="site-header">
+      <div class="site-header__inner">
+        <a class="logo-link" href="index.html" aria-label="BB Transport & Trading AS – hjem">
+          <img class="logo logo--nav" src="assets/logo.png" alt="BB Transport & Trading AS" />
+        </a>
+
+        <nav class="nav" id="site-nav" aria-label="Hovedmeny">
+          <a href="salg.html" data-i18n="nav.sales">Til salgs</a>
+          <a href="index.html#tjenester" data-i18n="nav.services">Tjenester</a>
+          <a href="index.html#om-oss" data-i18n="nav.about">Om oss</a>
+          <a class="nav-cta" href="index.html#kontakt" data-i18n="nav.contact">Kontakt</a>
+        </nav>
+
+        <div class="header-tools">
+          <button
+            class="lang-toggle"
+            type="button"
+            data-lang-toggle
+            aria-label="Switch to English"
+          >
+            <span class="lang-toggle__flag" data-lang-flag aria-hidden="true">🇬🇧</span>
+            <span class="lang-toggle__label" data-lang-label>English</span>
+          </button>
+
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            data-i18n-aria="nav.open"
+            aria-label="Åpne meny"
+          >
+            <span class="nav-toggle__bar" aria-hidden="true"></span>
+            <span class="nav-toggle__bar" aria-hidden="true"></span>
+            <span class="nav-toggle__bar" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="sales-page">
+      <section class="section sales-section">
+        <div class="section__inner">
+          <p class="ad-detail__back">
+            <a href="salg.html" data-i18n="sales.back">← Tilbake til alle annonser</a>
+          </p>
+          <div id="ad-detail"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <img class="logo logo--footer" src="assets/logo.png" alt="" />
+        <p>
+          &copy; <span id="year"></span> BB Transport &amp; Trading AS<br class="footer-break" />
+          <span class="footer-meta" data-i18n="footer.org">Org.nr. 934&nbsp;404&nbsp;440</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/listings-data.js"></script>
+    <script src="js/listings-store.js"></script>
+    <script src="js/listings.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

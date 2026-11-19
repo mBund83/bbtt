@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Til salgs | BB Transport & Trading AS</title>
+    <meta
+      name="description"
+      data-i18n-content="sales.metaDescription"
+      content="Lastebiler og maskiner til salgs hos BB Transport & Trading AS."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css?v=12" />
+  </head>
+  <body data-page="sales">
+    <header class="site-header site-header--solid is-scrolled" id="site-header">
+      <div class="site-header__inner">
+        <a class="logo-link" href="index.html" aria-label="BB Transport & Trading AS – hjem">
+          <img class="logo logo--nav" src="assets/logo.png" alt="BB Transport & Trading AS" />
+        </a>
+
+        <nav class="nav" id="site-nav" aria-label="Hovedmeny">
+          <a href="salg.html" aria-current="page" data-i18n="nav.sales">Til salgs</a>
+          <a href="index.html#tjenester" data-i18n="nav.services">Tjenester</a>
+          <a href="index.html#om-oss" data-i18n="nav.about">Om oss</a>
+          <a class="nav-cta" href="index.html#kontakt" data-i18n="nav.contact">Kontakt</a>
+        </nav>
+
+        <div class="header-tools">
+          <button
+            class="lang-toggle"
+            type="button"
+            data-lang-toggle
+            aria-label="Switch to English"
+          >
+            <span class="lang-toggle__flag" data-lang-flag aria-hidden="true">🇬🇧</span>
+            <span class="lang-toggle__label" data-lang-label>English</span>
+          </button>
+
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            data-i18n-aria="nav.open"
+            aria-label="Åpne meny"
+          >
+            <span class="nav-toggle__bar" aria-hidden="true"></span>
+            <span class="nav-toggle__bar" aria-hidden="true"></span>
+            <span class="nav-toggle__bar" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="sales-page">
+      <section class="sales-hero">
+        <div class="sales-hero__inner">
+          <p class="section__eyebrow" data-i18n="sales.eyebrow">Til salgs</p>
+          <h1 class="sales-hero__title" data-i18n="sales.title">Lastebiler og maskiner</h1>
+          <p class="sales-hero__lead" data-i18n="sales.lead">
+            Her publiserer vi aktuelle objekter når de er tilgjengelige. Ta gjerne
+            kontakt om du søker noe bestemt.
+          </p>
+        </div>
+      </section>
+
+      <section class="section sales-section">
+        <div class="section__inner">
+          <form class="sales-filters" id="sales-filters" hidden>
+            <label class="sales-filters__field">
+              <span data-i18n="sales.search">Søk</span>
+              <input
+                id="filter-search"
+                type="search"
+                data-i18n-placeholder="sales.searchPh"
+                placeholder="Søk etter merke, modell…"
+                autocomplete="off"
+              />
+            </label>
+            <label class="sales-filters__field">
+              <span data-i18n="sales.category">Kategori</span>
+              <select id="filter-category">
+                <option value="alle" data-i18n="sales.all">Alle</option>
+                <option value="lastebil" data-i18n="sales.trucks">Lastebiler</option>
+                <option value="maskin" data-i18n="sales.machines">Maskiner</option>
+              </select>
+            </label>
+            <label class="sales-filters__field">
+              <span data-i18n="sales.sort">Sorter</span>
+              <select id="filter-sort">
+                <option value="nyest" data-i18n="sales.sortNewest">Sist lagt inn</option>
+                <option value="pris-asc" data-i18n="sales.sortPriceAsc">Pris lav–høy</option>
+                <option value="pris-desc" data-i18n="sales.sortPriceDesc">Pris høy–lav</option>
+                <option value="aar-desc" data-i18n="sales.sortYear">Årsmodell</option>
+              </select>
+            </label>
+            <p class="sales-filters__count" id="ad-count">0 annonser</p>
+          </form>
+
+          <div class="ad-list" id="ad-list"></div>
+          <p class="ad-empty" id="ad-empty" data-i18n="sales.empty">
+            Vi har ingen objekter til salgs akkurat nå. Ta kontakt – vi hjelper deg
+            gjerne videre.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <img class="logo logo--footer" src="assets/logo.png" alt="" />
+        <p>
+          &copy; <span id="year"></span> BB Transport &amp; Trading AS<br class="footer-break" />
+          <span class="footer-meta" data-i18n="footer.org">Org.nr. 934&nbsp;404&nbsp;440</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/listings-data.js"></script>
+    <script src="js/listings-store.js"></script>
+    <script src="js/listings.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

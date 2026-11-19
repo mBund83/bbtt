@@ -1,0 +1,3 @@
+window.BB_LISTINGS_DEFAULT = [];
+
+window.BB_LISTINGS = window.BB_LISTINGS_DEFAULT;

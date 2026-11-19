@@ -9,10 +9,14 @@ function setHeaderScrolled() {
   header.classList.toggle("is-scrolled", window.scrollY > 12);
 }
 
+function navLabel(key, fallback) {
+  return typeof t === "function" ? t(key) : fallback;
+}
+
 function closeNav() {
   if (!toggle || !header) return;
   toggle.setAttribute("aria-expanded", "false");
-  toggle.setAttribute("aria-label", "Åpne meny");
+  toggle.setAttribute("aria-label", navLabel("nav.open", "Åpne meny"));
   header.classList.remove("is-open");
   document.body.classList.remove("is-nav-open");
 }
@@ -20,7 +24,7 @@ function closeNav() {
 function openNav() {
   if (!toggle || !header) return;
   toggle.setAttribute("aria-expanded", "true");
-  toggle.setAttribute("aria-label", "Lukk meny");
+  toggle.setAttribute("aria-label", navLabel("nav.close", "Lukk meny"));
   header.classList.add("is-open");
   document.body.classList.add("is-nav-open");
 }

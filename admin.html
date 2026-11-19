@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administrer annonser | BB Transport & Trading AS</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css?v=12" />
+  </head>
+  <body class="admin-body">
+
+    <div class="admin-lock" id="admin-lock">
+      <form class="admin-lock__card" id="admin-login">
+        <img class="logo logo--nav" src="assets/logo.png" alt="" />
+        <h1>Administrer annonser</h1>
+        <p>Skriv inn passord for å legge inn og redigere annonser.</p>
+        <label>
+          Passord
+          <input id="admin-password" type="password" autocomplete="current-password" required />
+        </label>
+        <p class="admin-lock__error" id="admin-login-error" hidden>Feil passord.</p>
+        <button class="btn btn--primary" type="submit">Logg inn</button>
+        <a class="admin-lock__back" href="index.html">Til forsiden</a>
+      </form>
+    </div>
+
+    <div class="admin-app" id="admin-app" hidden>
+      <header class="site-header site-header--solid is-scrolled" id="site-header">
+        <div class="site-header__inner">
+          <a class="logo-link" href="index.html">
+            <img class="logo logo--nav" src="assets/logo.png" alt="BB Transport & Trading AS" />
+          </a>
+          <nav class="nav" aria-label="Admin">
+            <a href="salg.html">Se salgssiden</a>
+            <button class="nav-text-btn" type="button" id="admin-logout">Logg ut</button>
+          </nav>
+        </div>
+      </header>
+
+      <main class="admin-main">
+        <div class="admin-wrap">
+          <header class="admin-heading">
+            <div>
+              <p class="section__eyebrow">Admin</p>
+              <h1>Annonser</h1>
+              <p class="admin-heading__lead">
+                Legg inn, rediger og slett annonser. Last deretter ned filen og last den opp til
+                nettsiden for at endringene skal synes for alle.
+              </p>
+            </div>
+            <div class="admin-heading__actions">
+              <button class="btn btn--primary" type="button" id="btn-new">Ny annonse</button>
+              <button class="btn btn--ghost" type="button" id="btn-export">Last ned listings-data.js</button>
+            </div>
+          </header>
+
+          <p class="admin-status" id="admin-status" role="status"></p>
+
+          <div class="admin-layout">
+            <section class="admin-panel">
+              <div class="admin-panel__head">
+                <h2>Mine annonser</h2>
+                <button class="text-btn" type="button" id="btn-reset">Tilbakestill til standard</button>
+              </div>
+              <div class="admin-list" id="admin-list"></div>
+            </section>
+
+            <section class="admin-panel admin-panel--form">
+              <h2 id="form-title">Ny annonse</h2>
+              <form class="admin-form" id="admin-form">
+                <input type="hidden" id="field-id" />
+
+                <label>
+                  Tittel *
+                  <input id="field-title" type="text" required placeholder="f.eks. MAN TGX 26.480 tippbil" />
+                </label>
+
+                <div class="admin-form__row">
+                  <label>
+                    Kategori *
+                    <select id="field-category" required>
+                      <option value="lastebil">Lastebil</option>
+                      <option value="maskin">Maskin</option>
+                    </select>
+                  </label>
+                  <label>
+                    Pris (NOK) *
+                    <input id="field-price" type="number" min="0" step="1000" required placeholder="1180000" />
+                  </label>
+                </div>
+
+                <div class="admin-form__row">
+                  <label>
+                    Årsmodell
+                    <input id="field-year" type="number" min="1980" max="2100" placeholder="2019" />
+                  </label>
+                  <label id="wrap-km">
+                    Kilometerstand
+                    <input id="field-km" type="number" min="0" step="1000" placeholder="428000" />
+                  </label>
+                  <label id="wrap-hours" hidden>
+                    Timer
+                    <input id="field-hours" type="number" min="0" step="50" placeholder="5400" />
+                  </label>
+                </div>
+
+                <div class="admin-form__row">
+                  <label>
+                    Drivstoff
+                    <input id="field-fuel" type="text" placeholder="Diesel" />
+                  </label>
+                  <label>
+                    Girkasse
+                    <input id="field-transmission" type="text" placeholder="Automat" />
+                  </label>
+                </div>
+
+                <label>
+                  Bildebane (anbefalt)
+                  <input id="field-image" type="text" placeholder="assets/min-lastebil.jpg" />
+                </label>
+                <p class="admin-help">
+                  Legg bildefilen i <code>assets/</code>-mappen og skriv stien her. Du kan også laste
+                  opp et bilde under (lagres midlertidig i nettleseren).
+                </p>
+
+                <label>
+                  Eller last opp bilde
+                  <input id="field-image-file" type="file" accept="image/*" />
+                </label>
+                <div class="admin-preview" id="image-preview" hidden></div>
+
+                <label>
+                  Høydepunkter (kommaseparert)
+                  <input
+                    id="field-highlights"
+                    type="text"
+                    placeholder="Hardox tippkasse, Ekstralys, Retarder"
+                  />
+                </label>
+
+                <label>
+                  Beskrivelse
+                  <textarea id="field-description" rows="5" placeholder="Kort beskrivelse av objektet…"></textarea>
+                </label>
+
+                <div class="admin-form__actions">
+                  <button class="btn btn--primary" type="submit" id="btn-save">Lagre annonse</button>
+                  <button class="btn btn--ghost" type="button" id="btn-cancel">Avbryt</button>
+                </div>
+              </form>
+            </section>
+          </div>
+
+          <aside class="admin-tip">
+            <h2>Slik publiserer du</h2>
+            <ol>
+              <li>Lagre annonsene her.</li>
+              <li>Klikk <strong>Last ned listings-data.js</strong>.</li>
+              <li>Erstatt filen <code>js/listings-data.js</code> på nettsiden/serveren.</li>
+              <li>Last opp eventuelle nye bilder til <code>assets/</code>.</li>
+            </ol>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/listings-data.js"></script>
+    <script src="js/listings-store.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

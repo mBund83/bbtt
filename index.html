@@ -6,84 +6,86 @@
     <title>BB Transport & Trading AS</title>
     <meta
       name="description"
+      data-i18n-content="meta.description"
       content="BB Transport & Trading AS – kjøp og salg av lastebiler og maskiner, samt transporttjenester."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=5" />
+    <link rel="stylesheet" href="css/styles.css?v=12" />
   </head>
   <body>
-    <div class="atmosphere" aria-hidden="true"></div>
-
     <header class="site-header" id="site-header">
       <div class="site-header__inner">
         <a class="logo-link" href="#top" aria-label="BB Transport & Trading AS – til toppen">
           <img class="logo logo--nav" src="assets/logo.png" alt="BB Transport & Trading AS" />
         </a>
 
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-nav"
-          aria-label="Åpne meny"
-        >
-          <span class="nav-toggle__bar" aria-hidden="true"></span>
-          <span class="nav-toggle__bar" aria-hidden="true"></span>
-          <span class="nav-toggle__bar" aria-hidden="true"></span>
-        </button>
-
         <nav class="nav" id="site-nav" aria-label="Hovedmeny">
-          <a href="#tjenester">Tjenester</a>
-          <a href="#om-oss">Om oss</a>
-          <a href="#kontakt">Kontakt</a>
+          <a href="salg.html" data-i18n="nav.sales">Til salgs</a>
+          <a href="#tjenester" data-i18n="nav.services">Tjenester</a>
+          <a href="#om-oss" data-i18n="nav.about">Om oss</a>
+          <a class="nav-cta" href="#kontakt" data-i18n="nav.contact">Kontakt</a>
         </nav>
+
+        <div class="header-tools">
+          <button
+            class="lang-toggle"
+            type="button"
+            data-lang-toggle
+            aria-label="Switch to English"
+          >
+            <span class="lang-toggle__flag" data-lang-flag aria-hidden="true">🇬🇧</span>
+            <span class="lang-toggle__label" data-lang-label>English</span>
+          </button>
+
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            data-i18n-aria="nav.open"
+            aria-label="Åpne meny"
+          >
+            <span class="nav-toggle__bar" aria-hidden="true"></span>
+            <span class="nav-toggle__bar" aria-hidden="true"></span>
+            <span class="nav-toggle__bar" aria-hidden="true"></span>
+          </button>
+        </div>
       </div>
     </header>
 
     <main id="top">
       <section class="hero">
-        <div class="hero__frame">
-          <div class="hero__content">
-            <img
-              class="logo logo--hero reveal"
-              src="assets/logo.png"
-              alt="BB Transport & Trading AS"
-            />
-            <h1 class="hero__title reveal reveal-delay-1">
-              Lastebiler, maskiner<br />og pålitelig transport
-            </h1>
-            <p class="hero__lead reveal reveal-delay-2">
-              Vi kjøper og selger lastebiler og maskiner, og leverer transporttjenester
-              med tydelige avtaler og kort vei til beslutning.
-            </p>
-            <div class="hero__actions reveal reveal-delay-3">
-              <a class="btn btn--primary" href="#kontakt">Ta kontakt</a>
-              <a class="btn btn--ghost" href="#tjenester">Våre tjenester</a>
-            </div>
-          </div>
-          <div class="hero__media reveal reveal-delay-2">
-            <img
-              class="hero__truck"
-              src="assets/truck.png"
-              alt="Rød MAN tippbil"
-              width="840"
-              height="560"
-            />
+        <div class="hero__media" aria-hidden="true">
+          <img src="assets/truck.png?v=8" alt="" width="1600" height="1000" />
+          <div class="hero__wash"></div>
+        </div>
+        <div class="hero__content">
+          <h1 class="hero__title reveal" data-i18n-html="hero.title">
+            Lastebiler, maskiner<br />og pålitelig transport
+          </h1>
+          <p class="hero__lead reveal reveal-delay-2" data-i18n="hero.lead">
+            Med 25 års erfaring og et bredt kontaktnett i inn- og utland kjøper og
+            selger vi lastebiler og maskiner, og leverer transporttjenester med
+            tydelige avtaler.
+          </p>
+          <div class="hero__actions reveal reveal-delay-3">
+            <a class="btn btn--primary" href="salg.html" data-i18n="hero.ctaSales">Se til salgs</a>
+            <a class="btn btn--ghost" href="#kontakt" data-i18n="hero.ctaContact">Ta kontakt</a>
           </div>
         </div>
       </section>
 
       <section id="tjenester" class="section">
-        <div class="section__inner">
+        <div class="section__inner section__inner--narrow">
           <header class="section__header reveal">
-            <p class="section__eyebrow">Tjenester</p>
-            <h2 class="section__title">Handel og transport</h2>
-            <p class="section__lead">
+            <p class="section__eyebrow" data-i18n="services.eyebrow">Tjenester</p>
+            <h2 class="section__title" data-i18n="services.title">Handel og transport</h2>
+            <p class="section__lead" data-i18n="services.lead">
               Enten du skal handle kjøretøy og maskiner, eller trenger transport –
               vi holder dialogen kort og leveransen profesjonell.
             </p>
@@ -92,56 +94,63 @@
           <div class="service-grid">
             <article class="service reveal">
               <span class="service__index">01</span>
-              <h3>Kjøp og salg av lastebiler og maskiner</h3>
-              <p>
-                Vi formidler og handler lastebiler og maskiner for bedrifter og
-                privatpersoner. Fra vurdering og pris til gjennomført avtale –
-                med fokus på kvalitet, dokumentasjon og tydelige vilkår.
-              </p>
+              <div>
+                <h3 data-i18n="services.1.title">Kjøp og salg av lastebiler og maskiner</h3>
+                <p data-i18n="services.1.body">
+                  Vi formidler og handler lastebiler og maskiner for bedrifter og
+                  privatpersoner. Fra vurdering og pris til gjennomført avtale –
+                  med fokus på kvalitet, dokumentasjon og tydelige vilkår.
+                </p>
+                <p class="service__link">
+                  <a href="salg.html" data-i18n="services.1.link">Se objekter til salgs →</a>
+                </p>
+              </div>
             </article>
             <article class="service reveal">
               <span class="service__index">02</span>
-              <h3>Transporttjenester</h3>
-              <p>
-                Pålitelig transport når du trenger det. Vi tilpasser oppdraget
-                etter last, tidspunkt og destinasjon – med ryddig oppfølging
-                underveis.
-              </p>
+              <div>
+                <h3 data-i18n="services.2.title">Transporttjenester</h3>
+                <p data-i18n="services.2.body">
+                  Pålitelig transport når du trenger det. Vi tilpasser oppdraget
+                  etter last, tidspunkt og destinasjon – med ryddig oppfølging
+                  underveis.
+                </p>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="om-oss" class="section section--alt">
-        <div class="section__inner about">
+      <section id="om-oss" class="section section--sea">
+        <div class="section__inner">
           <header class="section__header reveal">
-            <p class="section__eyebrow">Om oss</p>
-            <h2 class="section__title">BB Transport &amp; Trading AS</h2>
+            <p class="section__eyebrow" data-i18n="about.eyebrow">Om oss</p>
+            <h2 class="section__title" data-i18n="about.title">BB Transport &amp; Trading AS</h2>
           </header>
           <div class="about__grid">
             <div class="about__copy reveal">
-              <p>
+              <p data-i18n="about.p1">
                 BB Transport &amp; Trading AS er et aksjeselskap som kombinerer
                 handel med lastebiler og maskiner med praktiske
                 transporttjenester – slik at du får én partner for både kjøp,
                 salg og frakt.
               </p>
-              <p>
+              <p data-i18n="about.p2">
                 Med over 25 års erfaring og et stort nettverk i inn- og utland
                 hjelper vi deg med ryddige avtaler og korte beslutningsveier.
               </p>
             </div>
             <dl class="about__facts reveal">
               <div>
-                <dt>Erfaring</dt>
-                <dd>Over 25 år</dd>
+                <dt data-i18n="about.experience">Erfaring</dt>
+                <dd data-i18n="about.experienceVal">Over 25 år</dd>
               </div>
               <div>
-                <dt>Nettverk</dt>
-                <dd>Inn- og utland</dd>
+                <dt data-i18n="about.network">Nettverk</dt>
+                <dd data-i18n="about.networkVal">Inn- og utland</dd>
               </div>
               <div>
-                <dt>Org.nr.</dt>
+                <dt data-i18n="about.org">Org.nr.</dt>
                 <dd>934&nbsp;404&nbsp;440</dd>
               </div>
             </dl>
@@ -151,22 +160,22 @@
             <div class="contact-block">
               <p class="contact-block__name">Morten Bundli</p>
               <a class="contact-line" href="tel:+4791338422">
-                <span class="contact-line__label">Telefon</span>
+                <span class="contact-line__label" data-i18n="contact.phone">Telefon</span>
                 <span class="contact-line__value">91 33 84 22</span>
               </a>
               <a class="contact-line" href="mailto:morten@bbtt.no">
-                <span class="contact-line__label">E-post</span>
+                <span class="contact-line__label" data-i18n="contact.email">E-post</span>
                 <span class="contact-line__value">morten@bbtt.no</span>
               </a>
             </div>
             <div class="contact-block">
               <p class="contact-block__name">Christer Bremseth</p>
               <a class="contact-line" href="tel:+4747456464">
-                <span class="contact-line__label">Telefon</span>
+                <span class="contact-line__label" data-i18n="contact.phone">Telefon</span>
                 <span class="contact-line__value">47 45 64 64</span>
               </a>
               <a class="contact-line" href="mailto:christer@bbtt.no">
-                <span class="contact-line__label">E-post</span>
+                <span class="contact-line__label" data-i18n="contact.email">E-post</span>
                 <span class="contact-line__value">christer@bbtt.no</span>
               </a>
             </div>
@@ -176,37 +185,36 @@
 
       <section id="kontakt" class="section">
         <div class="section__inner">
-          <header class="section__header reveal">
-            <p class="section__eyebrow">Kontakt</p>
-            <h2 class="section__title">Ta kontakt for en uforpliktende samtale</h2>
-            <p class="section__lead">
+          <div class="cta-panel reveal">
+            <p class="section__eyebrow" data-i18n="contact.eyebrow">Kontakt</p>
+            <h2 class="section__title" data-i18n="contact.title">Ta kontakt for en uforpliktende samtale</h2>
+            <p class="section__lead" data-i18n="contact.lead">
               Har du et kjøretøy eller en maskin til salgs, ser du etter noe
               bestemt, eller trenger du transport? Ring eller send en e-post.
             </p>
-          </header>
-
-          <div class="contact-panel reveal">
-            <div class="contact-block">
-              <p class="contact-block__name">Morten Bundli</p>
-              <a class="contact-line" href="tel:+4791338422">
-                <span class="contact-line__label">Telefon</span>
-                <span class="contact-line__value">91 33 84 22</span>
-              </a>
-              <a class="contact-line" href="mailto:morten@bbtt.no">
-                <span class="contact-line__label">E-post</span>
-                <span class="contact-line__value">morten@bbtt.no</span>
-              </a>
-            </div>
-            <div class="contact-block">
-              <p class="contact-block__name">Christer Bremseth</p>
-              <a class="contact-line" href="tel:+4747456464">
-                <span class="contact-line__label">Telefon</span>
-                <span class="contact-line__value">47 45 64 64</span>
-              </a>
-              <a class="contact-line" href="mailto:christer@bbtt.no">
-                <span class="contact-line__label">E-post</span>
-                <span class="contact-line__value">christer@bbtt.no</span>
-              </a>
+            <div class="contact-panel contact-panel--in-cta">
+              <div class="contact-block">
+                <p class="contact-block__name">Morten Bundli</p>
+                <a class="contact-line" href="tel:+4791338422">
+                  <span class="contact-line__label" data-i18n="contact.phone">Telefon</span>
+                  <span class="contact-line__value">91 33 84 22</span>
+                </a>
+                <a class="contact-line" href="mailto:morten@bbtt.no">
+                  <span class="contact-line__label" data-i18n="contact.email">E-post</span>
+                  <span class="contact-line__value">morten@bbtt.no</span>
+                </a>
+              </div>
+              <div class="contact-block">
+                <p class="contact-block__name">Christer Bremseth</p>
+                <a class="contact-line" href="tel:+4747456464">
+                  <span class="contact-line__label" data-i18n="contact.phone">Telefon</span>
+                  <span class="contact-line__value">47 45 64 64</span>
+                </a>
+                <a class="contact-line" href="mailto:christer@bbtt.no">
+                  <span class="contact-line__label" data-i18n="contact.email">E-post</span>
+                  <span class="contact-line__value">christer@bbtt.no</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -218,11 +226,12 @@
         <img class="logo logo--footer" src="assets/logo.png" alt="" />
         <p>
           &copy; <span id="year"></span> BB Transport &amp; Trading AS<br class="footer-break" />
-          <span class="footer-meta">Org.nr. 934&nbsp;404&nbsp;440</span>
+          <span class="footer-meta" data-i18n="footer.org">Org.nr. 934&nbsp;404&nbsp;440</span>
         </p>
       </div>
     </footer>
 
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
