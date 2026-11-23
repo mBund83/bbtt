@@ -1599,3 +1599,12 @@ ol {
     transform: none;
   }
 }
+
+
+/* Featured listings introduction */
+.featured-section { padding-top: clamp(36px, 5vw, 64px); padding-bottom: clamp(12px, 2vw, 24px); }
+.featured-callout { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: clamp(24px, 4vw, 42px); border: 1px solid rgba(25, 62, 87, .13); border-radius: 20px; background: #f2f6f8; }
+.featured-callout .section__title { margin-bottom: 12px; }
+.featured-callout .section__lead { margin-bottom: 0; }
+.featured-callout > .btn { flex-shrink: 0; white-space: nowrap; }
+@media (max-width: 760px) { .featured-callout { flex-direction: column; align-items: flex-start; gap: 20px; } .featured-callout > .btn { white-space: normal; } }
