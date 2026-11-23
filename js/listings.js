@@ -1,3 +1,7 @@
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+}
+
 function tr(key, vars) {
   if (typeof t === "function") return t(key, vars);
   return key;
@@ -45,14 +49,14 @@ function listingSpecs(item) {
 
 function listingImage(item) {
   if (item.image) {
-    return `<img src="${item.image}" alt="${item.title}" loading="lazy" width="640" height="400" />`;
+    return `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" width="640" height="400" />`;
   }
   return `<div class="ad-card__placeholder" aria-hidden="true">${categoryLabel(item.category)}</div>`;
 }
 
 function renderAdCard(item) {
   const specs = listingSpecs(item)
-    .map((spec) => `<li>${spec}</li>`)
+    .map((spec) => `<li>${escapeHtml(spec)}</li>`)
     .join("");
 
   return `
@@ -62,10 +66,9 @@ function renderAdCard(item) {
         <div class="ad-card__body">
           <div class="ad-card__top">
             <p class="ad-card__category">${categoryLabel(item.category)}</p>
-            <h2 class="ad-card__title">${item.title}</h2>
+            <h2 class="ad-card__title">${escapeHtml(item.title)}</h2>
             <ul class="ad-card__specs">${specs}</ul>
           </div>
-          <p class="ad-card__price">${formatPrice(item.price)}</p>
         </div>
       </a>
     </article>
@@ -89,9 +92,7 @@ function filterListings(listings, { category, query, sort }) {
     });
   }
 
-  if (sort === "pris-asc") result.sort((a, b) => a.price - b.price);
-  if (sort === "pris-desc") result.sort((a, b) => b.price - a.price);
-  if (sort === "aar-desc") result.sort((a, b) => (b.year || 0) - (a.year || 0));
+    if (sort === "aar-desc") result.sort((a, b) => (b.year || 0) - (a.year || 0));
 
   return result;
 }
@@ -128,13 +129,14 @@ function initSalesPage() {
 
     if (emptyEl) {
       emptyEl.hidden = filtered.length > 0;
-      emptyEl.textContent = hasListings ? tr("sales.emptyFilter") : tr("sales.empty");
+      emptyEl.textContent = window.BB_LISTINGS_ERROR || (hasListings ? tr("sales.emptyFilter") : tr("sales.empty"));
     }
   }
 
   [categoryEl, sortEl].forEach((el) => el?.addEventListener("change", refresh));
   searchEl?.addEventListener("input", refresh);
   document.addEventListener("bb:langchange", refresh);
+  document.addEventListener("bb:listings-loaded", refresh);
   refresh();
 }
 
@@ -163,7 +165,7 @@ function initAdDetailPage() {
       .map((spec) => `<li>${spec}</li>`)
       .join("");
     const highlights = (item.highlights || [])
-      .map((h) => `<li>${h}</li>`)
+      .map((h) => `<li>${escapeHtml(h)}</li>`)
       .join("");
 
     root.innerHTML = `
@@ -173,8 +175,7 @@ function initAdDetailPage() {
         </div>
         <div class="ad-detail__info">
           <p class="ad-detail__category">${categoryLabel(item.category)}</p>
-          <h1 class="ad-detail__title">${item.title}</h1>
-          <p class="ad-detail__price">${formatPrice(item.price)}</p>
+          <h1 class="ad-detail__title">${escapeHtml(item.title)}</h1>
           <ul class="ad-detail__specs">${specs}</ul>
           ${
             highlights
@@ -183,7 +184,7 @@ function initAdDetailPage() {
           }
           <div class="ad-detail__block">
             <h2>${tr("ad.description")}</h2>
-            <p>${item.description}</p>
+            <p>${escapeHtml(item.description)}</p>
           </div>
           <div class="ad-detail__cta">
             <a class="btn btn--primary" href="tel:+4791338422">${tr("ad.call")}</a>
@@ -198,6 +199,7 @@ function initAdDetailPage() {
   }
 
   document.addEventListener("bb:langchange", render);
+  document.addEventListener("bb:listings-loaded", render);
   render();
 }
 
