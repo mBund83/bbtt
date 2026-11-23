@@ -2,7 +2,7 @@ window.BB_I18N = {
   no: {
     "meta.description":
       "BB Transport & Trading AS – kjøp og salg av lastebiler og maskiner, samt transporttjenester.",
-    "nav.sales": "Til salgs",
+    "nav.sales": "Tilgjengelige objekter",
     "nav.services": "Tjenester",
     "nav.about": "Om oss",
     "nav.contact": "Kontakt",
@@ -13,13 +13,13 @@ window.BB_I18N = {
     "hero.title": "Lastebiler og maskiner<br />kjøp, salg og transport",
     "hero.lead":
       "Med 25 års erfaring og et bredt kontaktnett i inn- og utland kjøper og selger vi lastebiler og maskiner, og leverer transporttjenester med tydelige avtaler.",
-    "hero.ctaSales": "Se til salgs",
+    "hero.ctaSales": "Se tilgjengelige objekter",
     "hero.ctaContact": "Ta kontakt",
     "hero.ctaTransport": "Transporttjenester",
-    "featured.eyebrow": "Aktuelle kjøretøy og maskiner",
-    "featured.title": "Se hva vi har til salgs",
-    "featured.lead": "Utforsk våre annonser for lastebiler og maskiner. Finner du ikke det du leter etter? Med vårt nettverk i inn- og utland kan vi også hjelpe deg med å finne riktig objekt.",
-    "featured.cta": "Se salgsobjekter",
+    "featured.eyebrow": "Tilgjengelige objekter",
+    "featured.title": "Se tilgjengelige objekter",
+    "featured.lead": "Se kjøretøy og maskiner som er tilgjengelige gjennom vårt nettverk i inn- og utland. Vi hjelper deg også med å finne det du er på jakt etter.",
+    "featured.cta": "Se tilgjengelige objekter",
     "services.2.link": "Spør oss om transport →",
     "services.eyebrow": "Tjenester",
     "services.title": "Handel og transport",
@@ -50,12 +50,12 @@ window.BB_I18N = {
     "contact.lead":
       "Har du et kjøretøy eller en maskin til salgs, ser du etter noe bestemt, eller trenger du transport? Ring eller send en e-post.",
     "footer.org": "Org.nr. 934 404 440",
-    "sales.metaTitle": "Til salgs | BB Transport & Trading AS",
-    "sales.metaDescription": "Lastebiler og maskiner til salgs hos BB Transport & Trading AS.",
-    "sales.eyebrow": "Til salgs",
-    "sales.title": "Lastebiler og maskiner",
+    "sales.metaTitle": "Tilgjengelige objekter | BB Transport & Trading AS",
+    "sales.metaDescription": "Tilgjengelige lastebiler og maskiner hos BB Transport & Trading AS.",
+    "sales.eyebrow": "Tilgjengelige objekter",
+    "sales.title": "Tilgjengelige kjøretøy og maskiner",
     "sales.lead":
-      "Her publiserer vi aktuelle objekter når de er tilgjengelige. Ta gjerne kontakt om du søker noe bestemt.",
+      "Her finner du kjøretøy og maskiner som er tilgjengelige gjennom vårt nettverk. Kontakt oss gjerne hvis du leter etter noe bestemt.",
     "sales.search": "Søk",
     "sales.searchPh": "Søk etter merke, modell…",
     "sales.category": "Kategori",
@@ -70,7 +70,7 @@ window.BB_I18N = {
     "sales.count": "{n} annonser",
     "sales.countOne": "1 annonse",
     "sales.empty":
-      "Vi har ingen objekter til salgs akkurat nå. Ta kontakt – vi hjelper deg gjerne videre.",
+      "Ingen tilgjengelige objekter er publisert akkurat nå. Kontakt oss gjerne – vi kan hjelpe deg med å finne det du trenger.",
     "sales.emptyFilter":
       "Ingen annonser matcher søket. Prøv et annet filter, eller ta kontakt.",
     "sales.back": "← Tilbake til alle annonser",
@@ -88,7 +88,7 @@ window.BB_I18N = {
   en: {
     "meta.description":
       "BB Transport & Trading AS – buying and selling trucks and machinery, plus transport services.",
-    "nav.sales": "For sale",
+    "nav.sales": "Available vehicles & equipment",
     "nav.services": "Services",
     "nav.about": "About us",
     "nav.contact": "Contact",
@@ -99,13 +99,13 @@ window.BB_I18N = {
     "hero.title": "Trucks and machinery<br />buying, selling and transport",
     "hero.lead":
       "With 25 years of experience and a broad network in Norway and abroad, we buy and sell trucks and machinery, and deliver transport services with clear agreements.",
-    "hero.ctaSales": "View for sale",
+    "hero.ctaSales": "View available equipment",
     "hero.ctaContact": "Contact us",
     "hero.ctaTransport": "Transport services",
     "featured.eyebrow": "Available trucks and machinery",
-    "featured.title": "Explore our listings",
+    "featured.title": "Explore available vehicles and equipment",
     "featured.lead": "Browse our listings for trucks and machinery. Cannot find what you need? Our network in Norway and abroad can also help you source the right vehicle or machine.",
-    "featured.cta": "View listings",
+    "featured.cta": "View available equipment",
     "services.2.link": "Ask us about transport →",
     "services.eyebrow": "Services",
     "services.title": "Trading and transport",
@@ -136,10 +136,10 @@ window.BB_I18N = {
     "contact.lead":
       "Do you have a vehicle or machine for sale, are you looking for something specific, or do you need transport? Call or send an email.",
     "footer.org": "Org. no. 934 404 440",
-    "sales.metaTitle": "For sale | BB Transport & Trading AS",
+    "sales.metaTitle": "Available equipment | BB Transport & Trading AS",
     "sales.metaDescription": "Trucks and machinery for sale at BB Transport & Trading AS.",
-    "sales.eyebrow": "For sale",
-    "sales.title": "Trucks and machinery",
+    "sales.eyebrow": "Available equipment",
+    "sales.title": "Available vehicles and machinery",
     "sales.lead":
       "We publish available units here when we have them. Feel free to contact us if you are looking for something specific.",
     "sales.search": "Search",
@@ -156,7 +156,7 @@ window.BB_I18N = {
     "sales.count": "{n} listings",
     "sales.countOne": "1 listing",
     "sales.empty":
-      "We have no units for sale at the moment. Get in touch – we are happy to help.",
+      "No available vehicles or equipment are currently published. Contact us and we can help you find what you need.",
     "sales.emptyFilter":
       "No listings match your search. Try another filter, or contact us.",
     "sales.back": "← Back to all listings",
