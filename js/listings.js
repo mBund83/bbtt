@@ -7,15 +7,6 @@ function tr(key, vars) {
   return key;
 }
 
-function formatPrice(price) {
-  const locale = typeof getLang === "function" && getLang() === "en" ? "en-GB" : "nb-NO";
-  return new Intl.NumberFormat(locale, {
-    style: "currency",
-    currency: "NOK",
-    maximumFractionDigits: 0,
-  }).format(price);
-}
-
 function formatKm(km) {
   if (km == null) return null;
   const locale = typeof getLang === "function" && getLang() === "en" ? "en-GB" : "nb-NO";
