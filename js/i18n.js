@@ -33,7 +33,7 @@ window.BB_I18N = {
     "services.1.title": "Kjøp og salg av lastebiler og maskiner",
     "services.1.body":
       "Vi formidler og handler lastebiler og maskiner for bedrifter og privatpersoner. Fra vurdering og pris til gjennomført avtale – med fokus på kvalitet, dokumentasjon og tydelige vilkår.",
-    "services.1.link": "Se objekter til salgs →",
+    "services.1.link": "Se tilgjengelige objekter →",
     "services.2.title": "Transporttjenester",
     "services.2.body":
       "Pålitelig transport når du trenger det. Vi tilpasser oppdraget etter last, tidspunkt og destinasjon – med ryddig oppfølging underveis.",
@@ -124,7 +124,7 @@ window.BB_I18N = {
     "services.1.title": "Buying and selling trucks and machinery",
     "services.1.body":
       "We source and trade trucks and machinery for businesses and private customers. From assessment and pricing to completed deals – with a focus on quality, documentation and clear terms.",
-    "services.1.link": "View items for sale →",
+    "services.1.link": "View available equipment →",
     "services.2.title": "Transport services",
     "services.2.body":
       "Reliable transport when you need it. We adapt the job to cargo, timing and destination – with clear follow-up along the way.",
@@ -147,7 +147,7 @@ window.BB_I18N = {
       "Do you have a vehicle or machine for sale, are you looking for something specific, or do you need transport? Call or send an email.",
     "footer.org": "Org. no. 934 404 440",
     "sales.metaTitle": "Available equipment | BB Transport & Trading AS",
-    "sales.metaDescription": "Trucks and machinery for sale at BB Transport & Trading AS.",
+    "sales.metaDescription": "Available vehicles and machinery through BB Transport & Trading AS.",
     "sales.eyebrow": "Available equipment",
     "sales.title": "Available vehicles and machinery",
     "sales.lead":
