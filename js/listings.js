@@ -82,7 +82,7 @@ function filterListings(listings, { category, query, sort }) {
   if (query) {
     const q = query.trim().toLowerCase();
     result = result.filter((item) => {
-      const hay = [item.title, item.description, ...(item.highlights || [])]
+      const hay = [item.title, item.description, ...(item.highlights || []), ...(item.specifications || []).filter(spec => spec.label === "Maskintype" || spec.label === "Type").map(spec => spec.value)]
         .join(" ")
         .toLowerCase();
       return hay.includes(q);
