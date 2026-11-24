@@ -106,6 +106,13 @@ function initSalesPage() {
   if (!listEl) return;
 
   function refresh() {
+    if (!window.BB_LISTINGS_READY) {
+      const loading = typeof getLang === "function" && getLang() === "en" ? "Loading objects …" : "Laster objekter …";
+      if (countEl) countEl.textContent = loading;
+      if (emptyEl) emptyEl.hidden = true;
+      if (filtersEl) filtersEl.hidden = true;
+      return;
+    }
     const all = getListings();
     const hasListings = all.length > 0;
 
@@ -145,6 +152,7 @@ function initAdDetailPage() {
     const params = new URLSearchParams(window.location.search);
     const item = getListingById(params.get("id"));
 
+    if (!window.BB_LISTINGS_READY) { root.textContent = typeof getLang === "function" && getLang() === "en" ? "Loading object …" : "Laster objekt …"; return; }
     if (!item) {
       root.innerHTML = `
         <div class="ad-detail__missing">
