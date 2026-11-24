@@ -53,7 +53,7 @@ function renderAdCard(item) {
     [en ? "Mileage" : "Km.stand", formatKm(item.km)],
     ...(item.category === "maskin" ? [[en ? "Operating hours" : "Driftstimer", formatHours(item.hours)]] : [])
   ].filter(([,value]) => value != null && value !== "").map(([label,value]) =>
-    '<li style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:8px;width:100%;text-align:left;align-items:start;padding:0;margin:0;line-height:1.35"><span>'+escapeHtml(label)+'</span><strong>'+escapeHtml(value)+'</strong></li>'
+    '<li style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:8px;width:100%;text-align:left;align-items:start;padding:0;margin:0;line-height:1.15;min-height:0;border:0;background:none"><span>'+escapeHtml(label)+'</span><strong>'+escapeHtml(value)+'</strong></li>'
   ).join("");
 
   return `
@@ -63,7 +63,7 @@ function renderAdCard(item) {
         <div class="ad-card__body">
           <div class="ad-card__top">
             <h2 class="ad-card__title">${escapeHtml(item.title)}</h2>
-            <ul class="ad-card__specs" style="display:flex;flex-direction:column;gap:2px;width:100%">${specs}</ul>
+            <ul class="ad-card__specs" style="display:flex;flex-direction:column;gap:0;width:100%;margin:0;padding:0">${specs}</ul>
           </div>
         </div>
       </a>
