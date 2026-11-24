@@ -46,9 +46,15 @@ function listingImage(item) {
 }
 
 function renderAdCard(item) {
-  const specs = listingSpecs(item)
-    .map((spec) => `<li>${escapeHtml(spec)}</li>`)
-    .join("");
+  const en = typeof getLang === "function" && getLang() === "en";
+  const specs = [
+    [en ? "Model year" : "Årsmodell", item.year],
+    [en ? "Body type" : "Påbygg", (item.highlights || [])[0]],
+    [en ? "Mileage" : "Km.stand", formatKm(item.km)],
+    ...(item.category === "maskin" ? [[en ? "Operating hours" : "Driftstimer", formatHours(item.hours)]] : [])
+  ].filter(([,value]) => value != null && value !== "").map(([label,value]) =>
+    '<li style="display:flex;justify-content:space-between;gap:12px;width:100%"><span>'+escapeHtml(label)+'</span><strong>'+escapeHtml(value)+'</strong></li>'
+  ).join("");
 
   return `
     <article class="ad-card">
@@ -56,9 +62,8 @@ function renderAdCard(item) {
         <div class="ad-card__media">${listingImage(item)}</div>
         <div class="ad-card__body">
           <div class="ad-card__top">
-            <p class="ad-card__category">${categoryLabel(item.category)}</p>
             <h2 class="ad-card__title">${escapeHtml(item.title)}</h2>
-            <ul class="ad-card__specs">${specs}</ul>
+            <ul class="ad-card__specs" style="display:flex;flex-direction:column;gap:6px;width:100%">${specs}</ul>
           </div>
         </div>
       </a>
