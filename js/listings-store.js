@@ -17,6 +17,7 @@ async function loadPublicListings() {
     window.BB_LISTINGS_ERROR = 'Objektene kunne ikke lastes akkurat nå. Prøv igjen senere.';
     console.error('BBTT public listings:', error);
   }
+  window.BB_LISTINGS_READY = true;
   document.dispatchEvent(new Event('bb:listings-loaded'));
 }
-document.addEventListener('DOMContentLoaded', loadPublicListings);
+loadPublicListings();
