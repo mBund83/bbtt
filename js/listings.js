@@ -53,7 +53,7 @@ function renderAdCard(item) {
     [en ? "Mileage" : "Km.stand", formatKm(item.km)],
     ...(item.category === "maskin" ? [[en ? "Operating hours" : "Driftstimer", formatHours(item.hours)]] : [])
   ].filter(([,value]) => value != null && value !== "").map(([label,value]) =>
-    '<li style="display:flex;justify-content:space-between;gap:12px;width:100%"><span>'+escapeHtml(label)+'</span><strong>'+escapeHtml(value)+'</strong></li>'
+    '<li style="display:grid;grid-template-columns:112px minmax(0,1fr);gap:8px;width:100%;text-align:left;align-items:start"><span>'+escapeHtml(label)+'</span><strong>'+escapeHtml(value)+'</strong></li>'
   ).join("");
 
   return `
