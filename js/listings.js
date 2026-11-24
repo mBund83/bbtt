@@ -153,12 +153,21 @@ function initAdDetailPage() {
     document.title = `${item.title} | BB Transport & Trading AS`;
 
     const specs = listingSpecs(item)
-      .map((spec) => `<li>${spec}</li>`)
+      .map((spec) => `<li>${escapeHtml(spec)}</li>`)
       .join("");
     const highlights = (item.highlights || [])
       .map((h) => `<li>${escapeHtml(h)}</li>`)
       .join("");
 
+    const groups = new Map();
+    for (const spec of item.specifications || []) {
+      if (!groups.has(spec.group)) groups.set(spec.group, []);
+      groups.get(spec.group).push(spec);
+    }
+    const technical = Array.from(groups, ([group, rows]) =>
+      '<section style="margin:24px 0"><h3>'+escapeHtml(group)+'</h3><table style="width:100%;border-collapse:collapse"><tbody>'+
+      rows.map(r=>'<tr><th scope="row" style="text-align:left;padding:9px 8px;border-bottom:1px solid #8885;font-weight:500;overflow-wrap:anywhere">'+escapeHtml(r.label)+'</th><td style="padding:9px 8px;border-bottom:1px solid #8885;overflow-wrap:anywhere">'+escapeHtml(r.value)+'</td></tr>').join('')+
+      '</tbody></table></section>').join('');
     root.innerHTML = `
       <div class="ad-detail__layout">
         <div class="ad-detail__media">
@@ -175,7 +184,7 @@ function initAdDetailPage() {
           }
           <div class="ad-detail__block">
             <h2>${tr("ad.description")}</h2>
-            <p>${escapeHtml(item.description)}</p>
+            <p style="white-space:pre-wrap">${escapeHtml(item.description)}</p>
           </div>
           <div class="ad-detail__cta">
             <a class="btn btn--primary" href="tel:+4791338422">${tr("ad.call")}</a>
@@ -186,6 +195,7 @@ function initAdDetailPage() {
           </div>
         </div>
       </div>
+      ${technical ? `<div class="ad-detail__block"><h2>${typeof getLang === "function" && getLang() === "en" ? "Technical specifications" : "Tekniske opplysninger"}</h2>${technical}</div>` : ""}
     `;
   }
 
