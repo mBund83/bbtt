@@ -61,8 +61,8 @@ function renderAdCard(item) {
       <a class="ad-card__link" href="annonse.html?id=${encodeURIComponent(item.id)}">
         <div class="ad-card__media">${listingImage(item)}</div>
         <div class="ad-card__body">
-          <div class="ad-card__top">
-            <h2 class="ad-card__title">${escapeHtml(item.title)}</h2>
+          <div class="ad-card__top" style="display:block">
+            <h2 class="ad-card__title" style="margin:0 0 1em">${escapeHtml(item.title)}</h2>
             <ul class="ad-card__specs" style="display:flex;flex-direction:column;gap:0;width:100%;margin:0;padding:0">${specs}</ul>
           </div>
         </div>
