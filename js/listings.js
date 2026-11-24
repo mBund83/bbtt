@@ -164,14 +164,25 @@ function initAdDetailPage() {
       if (!groups.has(spec.group)) groups.set(spec.group, []);
       groups.get(spec.group).push(spec);
     }
+    const axleRows = [];
+    for (const [group, rows] of groups) {
+      if (!/^Aksel \d+$/.test(group)) continue;
+      const n = Number(group.split(' ')[1]);
+      const tyre = groups.get('Dekk '+n) || [];
+      const val = (list,label) => list.find(r=>r.label===label)?.value || '–';
+      axleRows.push([n,val(tyre,'Dekkdimensjon'),val(rows,'Luftfjæring'),val(rows,'Avstand til neste aksel (mm)'),val(rows,'Tillatt aksellast (kg)'),val(rows,'Drivaksel'),val(tyre,'Felgdimensjon')]);
+    }
     const technical = Array.from(groups, ([group, rows]) =>
-      '<section style="margin:24px 0"><h3>'+escapeHtml(group)+'</h3><table style="width:100%;border-collapse:collapse"><tbody>'+
-      rows.map(r=>'<tr><th scope="row" style="text-align:left;padding:9px 8px;border-bottom:1px solid #8885;font-weight:500;overflow-wrap:anywhere">'+escapeHtml(r.label)+'</th><td style="padding:9px 8px;border-bottom:1px solid #8885;overflow-wrap:anywhere">'+escapeHtml(r.value)+'</td></tr>').join('')+
-      '</tbody></table></section>').join('');
+      /^Aksel \d+$|^Dekk \d+$/.test(group) ? '' :
+      '<section style="margin:24px 0"><h2>'+escapeHtml(group==='Generelt'?'Objektopplysninger':group)+'</h2>'+
+      rows.map(r=>'<p><strong>'+escapeHtml(r.label)+':</strong> '+escapeHtml(r.value)+'</p>').join('')+'</section>').join('');
+    const axles = axleRows.length ? '<section><h2>Aksler og dekk</h2><div style="overflow-x:auto"><table style="width:100%;min-width:680px;border-collapse:collapse;text-align:left"><thead><tr>'+['Aksel','Dekkdimensjon','Luftfjæring','Akselavstand (mm)','Tillatt aksellast (kg)','Drivaksel','Felgdimensjon'].map(h=>'<th style="padding:10px 8px;border-bottom:2px solid #aaa">'+h+'</th>').join('')+'</tr></thead><tbody>'+axleRows.map(row=>'<tr>'+row.map(v=>'<td style="padding:8px;border-bottom:1px solid #8885">'+escapeHtml(v)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div></section>':'';
+    const images = Array.isArray(item.images)&&item.images.length ? item.images : item.image?[item.image]:[];
+    const gallery = images.length ? '<img id="object-main-photo" src="'+escapeHtml(images[0])+'" alt="'+escapeHtml(item.title)+'" style="width:100%;height:auto;max-height:600px;object-fit:contain">'+(images.length>1?'<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px"><button class="btn btn--ghost" id="photo-prev" type="button">‹</button><span id="photo-count">1 / '+images.length+'</span><button class="btn btn--ghost" id="photo-next" type="button">›</button></div><div style="display:flex;overflow-x:auto;gap:8px;margin-top:12px">'+images.map((url,i)=>'<button type="button" data-photo-index="'+i+'" style="flex:0 0 72px;padding:0;border:1px solid #aaa;background:transparent"><img src="'+escapeHtml(url)+'" alt="Bilde '+(i+1)+'" style="width:72px;height:54px;object-fit:cover"></button>').join('')+'</div>':''):listingImage(item);
     root.innerHTML = `
       <div class="ad-detail__layout">
         <div class="ad-detail__media">
-          ${listingImage(item)}
+          ${gallery}
         </div>
         <div class="ad-detail__info">
           <p class="ad-detail__category">${categoryLabel(item.category)}</p>
@@ -182,10 +193,7 @@ function initAdDetailPage() {
               ? `<div class="ad-detail__block"><h2>${tr("ad.highlights")}</h2><ul class="ad-detail__list">${highlights}</ul></div>`
               : ""
           }
-          <div class="ad-detail__block">
-            <h2>${tr("ad.description")}</h2>
-            <p style="white-space:pre-wrap">${escapeHtml(item.description)}</p>
-          </div>
+
           <div class="ad-detail__cta">
             <a class="btn btn--primary" href="tel:+4791338422">${tr("ad.call")}</a>
             <a class="btn btn--ghost" href="mailto:morten@bbtt.no?subject=${encodeURIComponent(
@@ -195,8 +203,13 @@ function initAdDetailPage() {
           </div>
         </div>
       </div>
-      ${technical ? `<div class="ad-detail__block"><h2>${typeof getLang === "function" && getLang() === "en" ? "Technical specifications" : "Tekniske opplysninger"}</h2>${technical}</div>` : ""}
+      ${technical}${axles}<section class="ad-detail__block"><h2>${tr("ad.description")}</h2><p style="white-space:pre-wrap">${escapeHtml(item.description)}</p></section>
     `;
+    let index=0;
+    function showPhoto(n){index=(n+images.length)%images.length;root.querySelector('#object-main-photo').src=images[index];root.querySelector('#photo-count').textContent=(index+1)+' / '+images.length;}
+    root.querySelector('#photo-prev')?.addEventListener('click',()=>showPhoto(index-1));
+    root.querySelector('#photo-next')?.addEventListener('click',()=>showPhoto(index+1));
+    root.querySelectorAll('[data-photo-index]').forEach(b=>b.addEventListener('click',()=>showPhoto(Number(b.dataset.photoIndex))));
   }
 
   document.addEventListener("bb:langchange", render);
