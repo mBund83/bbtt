@@ -12,7 +12,7 @@ window.BB_I18N = {
     "lang.aria": "Switch to English",
     "hero.title": "Lastebiler og maskiner<br />kjøp, salg og transport",
     "hero.lead":
-      "Med 25 års erfaring og et bredt kontaktnett i inn- og utland kjøper og selger vi lastebiler og maskiner, og leverer transporttjenester med tydelige avtaler.",
+      "Du konsentrerer deg om jobben du skal gjøre. Vi hjelper deg med å selge utstyr eller skaffe det du trenger, og sørger for henting og levering dit du ønsker.",
     "hero.ctaSales": "Se tilgjengelige objekter",
     "hero.ctaContact": "Ta kontakt",
     "hero.ctaTransport": "Transporttjenester",
@@ -103,7 +103,7 @@ window.BB_I18N = {
     "lang.aria": "Bytt til norsk",
     "hero.title": "Trucks and machinery<br />buying, selling and transport",
     "hero.lead":
-      "With 25 years of experience and a broad network in Norway and abroad, we buy and sell trucks and machinery, and deliver transport services with clear agreements.",
+      "You focus on the work at hand. We help you sell your equipment or source what you need, and arrange collection and delivery wherever you want.",
     "hero.ctaSales": "View available equipment",
     "hero.ctaContact": "Contact us",
     "hero.ctaTransport": "Transport services",
